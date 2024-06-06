@@ -1,0 +1,8 @@
+prefix=/home/myg/sy31_projet/devel
+
+Name: lidar_mapping
+Description: Description of lidar_mapping
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,2 @@
+lidar_mapping:odometry
+-DCATKIN_DEVEL_PREFIX=/home/myg/sy31_projet/devel -DCMAKE_INSTALL_PREFIX=/home/myg/sy31_projet/install -G Unix Makefiles
