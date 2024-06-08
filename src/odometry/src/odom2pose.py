@@ -18,7 +18,7 @@ def coordinates_to_message(x, y, O, t):
     msg.pose.orientation.z,
     msg.pose.orientation.w] = quaternion_from_euler(0.0, 0.0, O)
     msg.header.stamp = t
-    msg.header.frame_id = 'odom'
+    msg.header.frame_id = 'base_scan'
     return msg
 
 class Odom2PoseNode:
@@ -41,9 +41,9 @@ class Odom2PoseNode:
         self.v = 0
 
         # Publishers
-        self.pub_enco = rospy.Publisher('/pose_enco', PoseStamped, queue_size=10)
-        self.pub_gyro = rospy.Publisher('/pose_gyro', PoseStamped, queue_size=10)
-        self.pub_magn = rospy.Publisher('/pose_magn', PoseStamped, queue_size=10)
+        self.pub_enco = rospy.Publisher('/pose_enco', PoseStamped, queue_size=0)
+        self.pub_gyro = rospy.Publisher('/pose_gyro', PoseStamped, queue_size=0)
+        self.pub_magn = rospy.Publisher('/pose_magn', PoseStamped, queue_size=0)
 
         # Subscribers
         self.sub_gyro = rospy.Subscriber('/imu', Imu, self.callback_gyro)
@@ -92,16 +92,16 @@ class Odom2PoseNode:
 
         # TODO: compute the angular velocity
         
-        self.w = gyro.angular_velocity.z 
+        self.w = gyro.angular_velocity.z*dt
 
         # TODO: update O_gyro, x_gyro and y_gyro accordingly (using self.v)
         
-        self.O_gyro = self.O_gyro + self.w   *dt
+        self.O_gyro = self.O_gyro + self.w 
         self.x_gyro = self.x_gyro  + self.v *dt * math.cos(self.O_gyro)
         self.y_gyro = self.y_gyro+ self.v *dt * math.sin(self.O_gyro)
         
 
-        msg = coordinates_to_message(self.x_gyro, self.y_gyro, self.O_gyro, gyro.header.stamp)
+        msg = coordinates_to_message(self.x_odom, self.y_odom,self.O_gyro, gyro.header.stamp)
         self.pub_gyro.publish(msg)
 
     def callback_magn(self, magnetic_field):
