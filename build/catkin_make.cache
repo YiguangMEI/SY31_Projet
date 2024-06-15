@@ -1,2 +1,0 @@
-cluster:detection:launching:mapping:odometry
--DCATKIN_DEVEL_PREFIX=/home/aubinvert/Projet_SY31/devel -DCMAKE_INSTALL_PREFIX=/home/aubinvert/Projet_SY31/install -G Unix Makefiles

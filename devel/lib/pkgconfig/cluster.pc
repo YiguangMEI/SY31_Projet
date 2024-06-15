@@ -1,8 +1,0 @@
-prefix=/home/aubinvert/Projet_SY31/devel
-
-Name: cluster
-Description: Description of cluster
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
