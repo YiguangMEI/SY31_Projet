@@ -61,8 +61,8 @@ class CameraNode:
         ###set the background
         # get size
         height, width, channels = img_bgr.shape
-        img_contours = np.ones((height, width, channels), dtype=np.uint8) * 255
-        #img_contours = img_bgr
+        img_contours = img_bgr #np.ones((height, width, channels), dtype=np.uint8) * 255
+        #img_contours = 
         ### set filter
         img_filter_blue = cv2.inRange(img_bgr, self.lower_bound_blue, self.upper_bound_blue)
         img_filter_red = cv2.inRange(img_bgr, self.lower_bound_red, self.upper_bound_red)
@@ -71,16 +71,51 @@ class CameraNode:
         contours_red, hierarchy = cv2.findContours(img_filter_red, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         
         ###get the max area
+        img_contours = img_bgr
+        max_blue_area = 0
+        max_red_area = 0
+        mean_x_blue = mean_y_blue = mean_x_red = mean_y_red = 0
+        max_contour_blue = max_contour_red = None
+
+        if len(contours_blue) > 0:
+            max_contour_blue = max(contours_blue, key=cv2.contourArea)
+            max_blue_area = cv2.contourArea(max_contour_blue)
+            M_blue = cv2.moments(max_contour_blue)
+            if M_blue["m00"] != 0:
+                mean_x_blue = int(M_blue["m10"] / M_blue["m00"])
+                mean_y_blue = int(M_blue["m01"] / M_blue["m00"])
+
+        if len(contours_red) > 0:
+            max_contour_red = max(contours_red, key=cv2.contourArea)
+            max_red_area = cv2.contourArea(max_contour_red)
+            M_red = cv2.moments(max_contour_red)
+            if M_red["m00"] != 0:
+                mean_x_red = int(M_red["m10"] / M_red["m00"])
+                mean_y_red = int(M_red["m01"] / M_red["m00"])
+
+        if max_blue_area >= max_red_area and max_contour_blue is not None:
+            cv2.drawContours(img_contours, [max_contour_blue], -1, (0, 0, 255), 3)
+            cv2.circle(img_contours, (mean_x_blue, mean_y_blue), 20, (0, 0, 255), -1)
+            cv2.putText(img_contours, '<== turn left', (mean_x_blue + 30, mean_y_blue + 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
+        elif max_contour_red is not None:
+            cv2.drawContours(img_contours, [max_contour_red], -1, (255, 0, 0), 3)
+            cv2.circle(img_contours, (mean_x_red, mean_y_red), 20, (255, 0, 0), -1)
+            cv2.putText(img_contours, 'turn right ==>', (mean_x_red + 30, mean_y_red + 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+
+        self.pub_img.publish(self.bridge.cv2_to_imgmsg(img_contours, "bgr8"))
+
+        """
         if len(contours_blue) > 0:
             max_contour_blue=max(contours_blue, key=cv2.contourArea )
             max_blue_area=cv2.contourArea(max_contour_blue)
             ###add contours to the backgroud
-            img_contours = cv2.drawContours(img_contours, max_contour_blue, -1, (0,0,255), 3)
+            img_contoursb = cv2.drawContours(img_contours, max_contour_blue, -1, (0,0,255), 3)
             M_blue = cv2.moments(max_contour_blue)
             if M_blue and M_blue["m00"] != 0:
                 mean_x_blue= int(M_blue["m10"]/M_blue["m00"])
                 mean_y_blue= int(M_blue["m01"]/M_blue["m00"]) 
-                img_contours=cv2.circle(img_contours,(mean_x_blue,mean_y_blue),20,(0,0,255),-1)      
+                img_contoursb=cv2.circle(img_contoursb,(mean_x_blue,mean_y_blue),20,(0,0,255),-1) 
+                cv2.putText(img_contoursb, '<== turn left', (mean_x_blue+30, mean_y_blue+30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)    
 
         else :
             max_blue_area=0
@@ -89,16 +124,22 @@ class CameraNode:
             max_contour_red=max(contours_red, key=cv2.contourArea )
             max_red_area=cv2.contourArea(max_contour_red)
             ###add contours to the backgroud
-            img_contours = cv2.drawContours(img_contours, max_contour_red, -1, (255,0,0), 3) 
+            img_contoursr = cv2.drawContours(img_contours, max_contour_red, -1, (255,0,0), 3) 
             M_red = cv2.moments(max_contour_red)
             
             if M_red and M_red["m00"] != 0:
                 mean_x_red= int(M_red["m10"]/M_red["m00"])
                 mean_y_red= int(M_red["m01"]/M_red["m00"])
-                img_contours=cv2.circle(img_contours,(mean_x_red,mean_y_red),20,(255,0,0),-1)  
+                img_contoursr=cv2.circle(img_contoursr,(mean_x_red,mean_y_red),20,(255,0,0),-1)  
+                cv2.putText(img_contoursr, ' turn right ==>', (mean_x_red+30, mean_y_red+30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
             
         else :
             max_red_area=0
+
+        if max_blue_area>=max_red_area:             
+            img_contours = img_contoursb
+        elif max_blue_area<max_red_area:
+            img_contours = img_contoursr
         
         ###add contours to the backgroud
         '''
@@ -120,6 +161,11 @@ class CameraNode:
         '''
        
         self.pub_img.publish(self.bridge.cv2_to_imgmsg(img_contours, "bgr8"))
+
+        """
+
+
+       
         
     
 
