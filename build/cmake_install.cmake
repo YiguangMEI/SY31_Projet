@@ -1,8 +1,8 @@
-# Install script for directory: /home/myg/sy31_projet/src
+# Install script for directory: /home/aubinvert/Projet_SY31/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/myg/sy31_projet/install")
+  set(CMAKE_INSTALL_PREFIX "/home/aubinvert/Projet_SY31/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,92 +49,93 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/myg/sy31_projet/install/_setup_util.py")
+   "/home/aubinvert/Projet_SY31/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/myg/sy31_projet/install" TYPE PROGRAM FILES "/home/myg/sy31_projet/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/aubinvert/Projet_SY31/install" TYPE PROGRAM FILES "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/myg/sy31_projet/install/env.sh")
+   "/home/aubinvert/Projet_SY31/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/myg/sy31_projet/install" TYPE PROGRAM FILES "/home/myg/sy31_projet/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/aubinvert/Projet_SY31/install" TYPE PROGRAM FILES "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/myg/sy31_projet/install/setup.bash;/home/myg/sy31_projet/install/local_setup.bash")
+   "/home/aubinvert/Projet_SY31/install/setup.bash;/home/aubinvert/Projet_SY31/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/myg/sy31_projet/install" TYPE FILE FILES
-    "/home/myg/sy31_projet/build/catkin_generated/installspace/setup.bash"
-    "/home/myg/sy31_projet/build/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/aubinvert/Projet_SY31/install" TYPE FILE FILES
+    "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/setup.bash"
+    "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/myg/sy31_projet/install/setup.sh;/home/myg/sy31_projet/install/local_setup.sh")
+   "/home/aubinvert/Projet_SY31/install/setup.sh;/home/aubinvert/Projet_SY31/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/myg/sy31_projet/install" TYPE FILE FILES
-    "/home/myg/sy31_projet/build/catkin_generated/installspace/setup.sh"
-    "/home/myg/sy31_projet/build/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/aubinvert/Projet_SY31/install" TYPE FILE FILES
+    "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/setup.sh"
+    "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/myg/sy31_projet/install/setup.zsh;/home/myg/sy31_projet/install/local_setup.zsh")
+   "/home/aubinvert/Projet_SY31/install/setup.zsh;/home/aubinvert/Projet_SY31/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/myg/sy31_projet/install" TYPE FILE FILES
-    "/home/myg/sy31_projet/build/catkin_generated/installspace/setup.zsh"
-    "/home/myg/sy31_projet/build/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/aubinvert/Projet_SY31/install" TYPE FILE FILES
+    "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/setup.zsh"
+    "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/myg/sy31_projet/install/.rosinstall")
+   "/home/aubinvert/Projet_SY31/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/myg/sy31_projet/install" TYPE FILE FILES "/home/myg/sy31_projet/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/aubinvert/Projet_SY31/install" TYPE FILE FILES "/home/aubinvert/Projet_SY31/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/myg/sy31_projet/build/gtest/cmake_install.cmake")
-  include("/home/myg/sy31_projet/build/cluster/cmake_install.cmake")
-  include("/home/myg/sy31_projet/build/detection/cmake_install.cmake")
-  include("/home/myg/sy31_projet/build/mapping/cmake_install.cmake")
-  include("/home/myg/sy31_projet/build/odometry/cmake_install.cmake")
+  include("/home/aubinvert/Projet_SY31/build/gtest/cmake_install.cmake")
+  include("/home/aubinvert/Projet_SY31/build/cluster/cmake_install.cmake")
+  include("/home/aubinvert/Projet_SY31/build/detection/cmake_install.cmake")
+  include("/home/aubinvert/Projet_SY31/build/launching/cmake_install.cmake")
+  include("/home/aubinvert/Projet_SY31/build/mapping/cmake_install.cmake")
+  include("/home/aubinvert/Projet_SY31/build/odometry/cmake_install.cmake")
 
 endif()
 
@@ -146,5 +147,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/myg/sy31_projet/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/aubinvert/Projet_SY31/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

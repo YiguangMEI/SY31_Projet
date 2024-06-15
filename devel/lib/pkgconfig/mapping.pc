@@ -1,4 +1,4 @@
-prefix=/home/myg/sy31_projet/devel
+prefix=/home/aubinvert/Projet_SY31/devel
 
 Name: mapping
 Description: Description of mapping

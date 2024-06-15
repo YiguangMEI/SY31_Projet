@@ -1,8 +1,8 @@
-# Install script for directory: /home/myg/sy31_projet/src/cluster
+# Install script for directory: /home/aubinvert/Projet_SY31/src/cluster
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/myg/sy31_projet/install")
+  set(CMAKE_INSTALL_PREFIX "/home/aubinvert/Projet_SY31/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/myg/sy31_projet/build/cluster/catkin_generated/installspace/cluster.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/aubinvert/Projet_SY31/build/cluster/catkin_generated/installspace/cluster.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cluster/cmake" TYPE FILE FILES
-    "/home/myg/sy31_projet/build/cluster/catkin_generated/installspace/clusterConfig.cmake"
-    "/home/myg/sy31_projet/build/cluster/catkin_generated/installspace/clusterConfig-version.cmake"
+    "/home/aubinvert/Projet_SY31/build/cluster/catkin_generated/installspace/clusterConfig.cmake"
+    "/home/aubinvert/Projet_SY31/build/cluster/catkin_generated/installspace/clusterConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cluster" TYPE FILE FILES "/home/myg/sy31_projet/src/cluster/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/cluster" TYPE FILE FILES "/home/aubinvert/Projet_SY31/src/cluster/package.xml")
 endif()
 

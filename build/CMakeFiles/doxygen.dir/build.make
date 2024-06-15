@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/myg/sy31_projet/src
+CMAKE_SOURCE_DIR = /home/aubinvert/Projet_SY31/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/myg/sy31_projet/build
+CMAKE_BINARY_DIR = /home/aubinvert/Projet_SY31/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/myg/sy31_projet/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/myg/sy31_projet/src /home/myg/sy31_projet/src /home/myg/sy31_projet/build /home/myg/sy31_projet/build /home/myg/sy31_projet/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aubinvert/Projet_SY31/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aubinvert/Projet_SY31/src /home/aubinvert/Projet_SY31/src /home/aubinvert/Projet_SY31/build /home/aubinvert/Projet_SY31/build /home/aubinvert/Projet_SY31/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

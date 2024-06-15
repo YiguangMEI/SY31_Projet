@@ -67,14 +67,14 @@ set(cluster_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(cluster_SOURCE_PREFIX /home/myg/sy31_projet/src/cluster)
-  set(cluster_DEVEL_PREFIX /home/myg/sy31_projet/devel)
+  set(cluster_SOURCE_PREFIX /home/aubinvert/Projet_SY31/src/cluster)
+  set(cluster_DEVEL_PREFIX /home/aubinvert/Projet_SY31/devel)
   set(cluster_INSTALL_PREFIX "")
   set(cluster_PREFIX ${cluster_DEVEL_PREFIX})
 else()
   set(cluster_SOURCE_PREFIX "")
   set(cluster_DEVEL_PREFIX "")
-  set(cluster_INSTALL_PREFIX /home/myg/sy31_projet/install)
+  set(cluster_INSTALL_PREFIX /home/aubinvert/Projet_SY31/install)
   set(cluster_PREFIX ${cluster_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/myg/sy31_projet/install/lib;/home/myg/workspace/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/aubinvert/Projet_SY31/install/lib;/home/aubinvert/Projet_SY31/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

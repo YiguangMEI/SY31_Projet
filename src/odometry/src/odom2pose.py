@@ -43,12 +43,10 @@ class Odom2PoseNode:
         # Publishers
         self.pub_enco = rospy.Publisher('/pose_enco', PoseStamped, queue_size=0)
         self.pub_gyro = rospy.Publisher('/pose_gyro', PoseStamped, queue_size=0)
-        self.pub_magn = rospy.Publisher('/pose_magn', PoseStamped, queue_size=0)
 
         # Subscribers
         self.sub_gyro = rospy.Subscriber('/imu', Imu, self.callback_gyro)
         self.sub_enco = rospy.Subscriber('/sensor_state', SensorState, self.callback_enco)
-        self.sub_magn = rospy.Subscriber('/magnetic_field', MagneticField, self.callback_magn)
 
     def callback_enco(self, sensor_state):
         # Compute the differential in encoder count
@@ -96,30 +94,16 @@ class Odom2PoseNode:
 
         # TODO: update O_gyro, x_gyro and y_gyro accordingly (using self.v)
         
+
         self.O_gyro = self.O_gyro + self.w 
         self.x_gyro = self.x_gyro  + self.v *dt * math.cos(self.O_gyro)
-        self.y_gyro = self.y_gyro+ self.v *dt * math.sin(self.O_gyro)
+        self.y_gyro = self.y_gyro + self.v *dt * math.sin(self.O_gyro)
         
 
         msg = coordinates_to_message(self.x_odom, self.y_odom,self.O_gyro, gyro.header.stamp)
         self.pub_gyro.publish(msg)
 
-    def callback_magn(self, magnetic_field):
-        if self.v == 0:
-            return
-
-        # TODO: compute the angle O_magn from magnetic fields (using MAG_OFFSET)
-        
-        self.O_magn = (np.arctan2(magnetic_field.magnetic_field.y,magnetic_field.magnetic_field.x) + self.MAG_OFFSET ) 
-
-        # TODO: update O_magn, x_magn and y_magn accordingly (using self.v)
-
-        self.x_magn = self.x_magn  + self.v  * math.cos(self.O_magn) * 1/20
-        self.y_magn = self.y_magn+ self.v * math.sin(self.O_magn)* 1/20
-        
-
-        msg = coordinates_to_message(self.x_magn, self.y_magn, self.O_magn, magnetic_field.header.stamp)
-        self.pub_magn.publish(msg)
+    
 
 if __name__ == '__main__':
     node = Odom2PoseNode()

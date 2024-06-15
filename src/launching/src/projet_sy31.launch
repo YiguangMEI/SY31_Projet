@@ -1,0 +1,16 @@
+<launch>
+    <arg name="transport" default="compressed" />
+	<arg name="ns_base" default="turtlebotcam" />
+	<arg name="ns_repl" default="camera" />
+
+	<remap from="/$(arg ns_repl)/camera_info" to="/$(arg ns_base)/camera_info" />
+	<node pkg="rqt_image_view" type="rqt_image_view" name="rqt_image_view" />
+	<node pkg="image_transport" type="republish" name="republisher" args="$(arg transport) in:=/$(arg ns_base)/image_raw raw out:=/$(arg ns_repl)/image_raw" output="screen" />
+	<node pkg="image_proc" type="image_proc" name="image_proc" ns="$(arg ns_repl)" />
+
+    <node pkg="detection" type="detect.py" name="detect"></node>
+    <node pkg="cluster" type="clusterer.py" name="clusterer"></node>
+    <node pkg="cluster" type="get_points.py" name="get_points"></node>
+    <node pkg="odometry" type="odom2pose.py" name="odom2pose"></node>
+    <node pkg="mapping" type="mapping.py" name="mapping"></node>    
+</launch>
