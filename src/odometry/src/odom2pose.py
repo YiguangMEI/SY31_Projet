@@ -96,11 +96,11 @@ class Odom2PoseNode:
         
 
         self.O_gyro = self.O_gyro + self.w 
-        self.x_gyro = self.x_gyro  + self.v *dt * math.cos(self.O_gyro)
-        self.y_gyro = self.y_gyro + self.v *dt * math.sin(self.O_gyro)
-        
+        self.x_gyro = self.x_gyro  + self.v * dt  * math.cos(self.O_gyro)
+        self.y_gyro = self.y_gyro + self.v * dt  * math.sin(self.O_gyro)
+    
 
-        msg = coordinates_to_message(self.x_odom, self.y_odom,self.O_gyro, gyro.header.stamp)
+        msg = coordinates_to_message(self.x_gyro, self.y_gyro,self.O_gyro, gyro.header.stamp)
         self.pub_gyro.publish(msg)
 
     

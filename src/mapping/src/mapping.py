@@ -66,7 +66,7 @@ class Transformer:
         self.points_time = msg.header.stamp
 
         # Check if the timestamps are close enough (synchronization)
-        if self.odom_time is not None and abs(self.odom_time.to_sec() - self.points_time.to_sec()) < 0.01:
+        if self.odom_time is not None and abs(self.odom_time.to_sec() - self.points_time.to_sec()) < 0.05:
             for x, y, _, _ in read_points(msg):
                 tmp = np.array([[x], [y], [1]])
                 transfo_matrix = np.array([
@@ -75,6 +75,7 @@ class Transformer:
                     [0, 0, 1]
                 ])
                 coords_O = np.dot(transfo_matrix, tmp)
+                #filter coords
                 self.coords.append([coords_O[0][0], coords_O[1][0]])
             pc2 = create_cloud(msg.header, PC2FIELDS, [[x, y, 0, 0] for x, y in self.coords])
             self.pub_pc2.publish(pc2)

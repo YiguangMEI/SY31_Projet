@@ -18,8 +18,8 @@ def callback(msg):
     groups = np.zeros(points.shape[0], dtype=int)
    
     # ToDo: Determine k and D values
-    k=3
-    D=0.1
+    k=4
+    D=0.006
     d=np.zeros(k)
     # ToDo: Clustering algorithm
     for i in range(k, points.shape[0]):
