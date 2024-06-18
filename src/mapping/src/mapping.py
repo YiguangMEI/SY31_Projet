@@ -24,20 +24,25 @@ class Transformer:
         #rospy.Subscriber('/scan', LaserScan, self.callback)
         #on va recupere les pojnts clustrisé d'ici: pub_clusters = rospy.Publisher('/lidar/clusters', PointCloud2, queue_size=10)
         rospy.Subscriber('lidar/clusters', PointCloud2, self.callback)
-        rospy.Subscriber('/pose_gyro', PoseStamped, self.callback_odom)
+        rospy.Subscriber('/pose_gyro', PoseStamped, self.callback_odom1)
+        rospy.Subscriber('/pose_enco', PoseStamped, self.callback_odom2)
         self.X_robot  = 0
         self.Y_robot  = 0
         self.theta_robot = 0
         self.coords = []
         self.odom_time = None
         self.points_time = None
-
+s
     
     #how to comment multiline in python: ctrl+/
 
-    def callback_odom(self, msg):
+    def callback_odom2(self, msg):
         self.X_robot = msg.pose.position.x 
         self.Y_robot = msg.pose.position.y 
+        
+        self.odom_time = msg.header.stamp
+
+    def callback_odom1(self, msg):
         self.theta_robot = euler_from_quaternion([msg.pose.orientation.x, msg.pose.orientation.y, msg.pose.orientation.z, msg.pose.orientation.w])[2]
         self.odom_time = msg.header.stamp
     
